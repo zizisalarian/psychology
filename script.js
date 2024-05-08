@@ -44,10 +44,17 @@ const getTopScroll = ()=>{
     if (scrolltop<200){
         goupButton.classList.add('d-none')
         goupButton.classList.remove('d-flex')
-        console.log(scrolltop)
     }else{
         goupButton.classList.remove('d-none')
         goupButton.classList.add('d-flex')
+    }
+
+    //fixed menu
+    let bodyElem = document.querySelector('body')
+    if (scrolltop<50){
+       bodyElem.classList.remove('scroll')
+    }else{
+        bodyElem.classList.add('scroll')
     }
 }
   
