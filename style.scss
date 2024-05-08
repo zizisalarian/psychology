@@ -119,8 +119,6 @@ body {
 
 header {
     height: fit-content;
-    // max-height: 100vh;
-    // padding: 100px 0 !important;
 
     .cover-image {
         background-image: url(./images/Basic-Psychology-FB.png);
@@ -143,12 +141,42 @@ header {
                 margin: 0 3px;
             }
         }
-    }
 
+        @media (max-width: 768px) {
+            display: none !important;
+        }
+    }
 }
 
 nav {
     height: fit-content;
+
+    // @media (max-width: 768px) {
+    //     position: fixed;
+    //     width: 100%;
+    //     right: 0;
+    //     top: 0;
+    //     background-color: red;
+    // }
+
+    >.menu-responsive {
+        width: 100% !important;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #9bdce4;
+        height: 50px;
+        align-items: center;
+        z-index: 9;
+
+        i {
+            margin-right: 30px;
+        }
+        .logo{
+            margin-left: 30px;
+        }
+
+    }
 
     ul {
         box-shadow: 0 2px 3px #aaa;
@@ -156,6 +184,33 @@ nav {
         background-color: #Eee;
         border-radius: 20px;
 
+        &.show {
+            display: flex !important;
+            position: fixed !important;
+            top: 49px;
+            right: 0;
+            width: 100%;
+            border-radius: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 9;
+
+            li {
+                &:has(.logo) {
+                    display: none !important;
+                }
+
+                width: 100%;
+                text-align: right;
+                border-bottom: 1px solid #fff;
+                padding: 5px;
+
+                span {
+                    display: none !important;
+                }
+            }
+
+        }
 
         li {
             a {
@@ -164,8 +219,31 @@ nav {
 
             }
 
+            .uderline-hover-menu {
+                width: 100%;
+                height: 2px;
+                background-color: var(--main-color);
+                display: block;
+                transform: scaleX(0);
+                transition: 0.5s;
+                border-radius: 3px;
+
+            }
+
+            &:hover a {
+                color: var(--main-color);
+            }
+
+            &:hover .uderline-hover-menu {
+                transform: scaleX(1);
+            }
+
             &.button-container {
                 left: -50px;
+
+                @media (max-width: 768px) {
+                    display: none !important;
+                }
 
                 .appoinment {
                     padding: 5px 10px;
@@ -190,28 +268,38 @@ nav {
 
     }
 }
- nav.scroll-menu{
+
+nav.scroll-menu {
     position: fixed;
-    top: -100%; 
-    transition:1s;
+    top: -100%;
+    transition: 1s;
     width: 100%;
     margin-top: 0 !important;
     box-shadow: 0 2px 3px #aaa;
     background-color: #Eee;
     z-index: 9;
-        ul {box-shadow: none;
-            background-color: transparent;
-            width: 100%;
-            border-radius: 0;
-            margin-bottom: 0 !important;
-            li.button-container{
-                left: 20px;
-            }
+    
+
+    ul {
+        box-shadow: none;
+        background-color: transparent;
+        width: 100%;
+        border-radius: 0;
+        margin-bottom: 0 !important;
+
+        li.button-container {
+            left: 20px;
         }
+    }
 }
-body.scroll nav.scroll-menu{
+
+body.scroll nav.scroll-menu {
     top: 0;
+    @media (max-width: 768px) {
+        display:  none !important;
+    }
 }
+
 
 .puzzle-img-container {
     // top: 100px;
@@ -853,10 +941,12 @@ footer {
     .container {
         position: relative;
         z-index: 2;
+
         @media (max-width: 576px) {
             gap: 20px 0;
         }
-        >div{
+
+        >div {
             @media (max-width: 576px) {
                 margin-right: 70px;
             }
