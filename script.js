@@ -15,7 +15,7 @@ inputElement.forEach((e) => {
 $(".owl-carousel").owlCarousel({
   rtl: true,
   loop: true,
-  margin: 10,
+  margin: 0,
   nav: true,
   responsive: {
     0: {
